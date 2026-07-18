@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.navipanel.player",
+    "sha256_cert_fingerprints": ["7C:8E:5F:29:E8:D3:E5:D5:08:4E:FE:FC:40:E4:68:1D:8C:A3:CC:3E:F6:59:6C:A8:22:2F:72:BC:75:6B:E6:9F"]
+  }
+}]
