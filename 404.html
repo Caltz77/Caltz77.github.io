@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Redirigiendo a EdEN...</title>
+<title>Abriendo EdEN...</title>
 <script>
 (function() {
   var path = window.location.pathname;
@@ -11,12 +11,16 @@
   if (match) {
     var type = match[1];
     var id = match[2];
-    window.location.href = "eden://" + type + "/" + id;
+    var intent = "intent://navipanel/" + type + "/" + id + "#Intent;scheme=https;package=com.navipanel.player;end";
+    window.location.href = intent;
+    setTimeout(function() {
+      window.location.href = "https://caltz77.github.io";
+    }, 500);
   }
 })();
 </script>
 </head>
 <body>
-<p>Abriendo EdEN...</p>
+<p>Si no se abre automáticamente, <a href="#" onclick="var m=window.location.pathname.match(/\/navipanel\/(song|playlist)\/(.+)/);if(m){window.location.href='intent://navipanel/'+m[1]+'/'+m[2]+'#Intent;scheme=https;package=com.navipanel.player;end'}return false">toca aquí</a> para abrir en EdEN.</p>
 </body>
 </html>
