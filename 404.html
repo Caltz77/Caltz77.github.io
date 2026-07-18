@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EdEN</title>
+<style>
+*{margin:0;padding:0}
+html,body{height:100%}
+body{background:#1a1a2e;color:#ccc;font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+p{color:#888;font-size:14px;margin-bottom:20px}
+a{background:#8ab4f8;color:#000;padding:16px 32px;border-radius:12px;font-size:18px;text-decoration:none}
+</style>
+</head>
+<body>
+<p id="msg">...</p>
+<a id="btn" style="display:none" href="#">Abrir en EdEN</a>
+<script>
+(function() {
+  var labels = { song:"Canción", playlist:"Playlist", album:"Álbum", artist:"Artista" };
+  var m = window.location.pathname.match(/\/navipanel\/(song|playlist|album|artist)\/(.+)/);
+  if (m) {
+    document.getElementById("msg").textContent = labels[m[1]] + " compartida";
+    var btn = document.getElementById("btn");
+    btn.href = "intent://caltz77.github.io/navipanel/" + m[1] + "/" + m[2] + "#Intent;scheme=https;package=com.navipanel.player;end";
+    btn.style.display = "inline-block";
+  }
+})();
+</script>
+</body>
+</html>
