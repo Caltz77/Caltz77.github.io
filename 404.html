@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EdEN</title>
+<style>
+body{background:#1a1a2e;color:#ccc;font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;margin:0;padding:20px;text-align:center}
+button{background:#8ab4f8;color:#000;border:none;padding:16px 32px;border-radius:12px;font-size:18px;cursor:pointer;margin-top:20px}
+p{color:#888;font-size:14px}
+</style>
+</head>
+<body>
+<p id="msg">...</p>
+<button id="btn" style="display:none" onclick="abrir()">Abrir en EdEN</button>
+<script>
+(function() {
+  var path = window.location.pathname;
+  var m = path.match(/\/navipanel\/(song|playlist)\/(.+)/);
+  if (m) {
+    var type = m[1], id = m[2];
+    document.getElementById("msg").textContent = type == "song" ? "Canción compartida" : "Playlist compartida";
+    var btn = document.getElementById("btn");
+    btn.style.display = "block";
+    btn._type = type;
+    btn._id = id;
+  }
+})();
+function abrir() {
+  var btn = document.getElementById("btn");
+  window.location.href = "eden://" + btn._type + "/" + btn._id;
+}
+</script>
+</body>
+</html>
